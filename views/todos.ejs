@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <div class="container">
+          <h3>
+            HELLO, <%= user.userName %>
+            <i class="fa-regular fa-face-smile-beam"></i>
+          </h3>
+          <h1>TO DO LIST</h1>
+
+          <div class="box">
+            <div class="subContainer">
+              <ul>
+                <% todos.forEach( el => { %>
+                <li class="todoItem" data-id="<%=el._id%>">
+                  <span
+                    class="<%= el.completed === true ? 'completed' : 'not'%>"
+                    ><%= el.todo %></span
+                  >
+                  <!-- <span class="del"> Delete </span> -->
+                  <span class="fa fa-trash del" class="icon"></span>
+                </li>
+                <% }) %>
+              </ul>
+            </div>
+            <div class="subContainer rightList">
+              <form
+                action="/todos/createTodo"
+                method="POST"
+                class="styled-form"
+              >
+                <input type="text" placeholder="Things To Do" name="todoItem" />
+                <button type="submit">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </form>
+
+              <h2>Left to do: <%= left %></h2>
+              <% for(let i=0; i < left; i++) {%>
+              <i class="fa-solid fa-seedling plantIcon"></i>
+              <% } %>
+            </div>
+          </div>
+          <div class="position-center">
+            <a href="/logout" class="btn-blue">Logout</a>
+          </div>
+        </div>
+
+        <script src="js/main.js"></script>
+        <script
+          src="https://kit.fontawesome.com/e1c5edae0a.js"
+          crossorigin="anonymous"
+        ></script>
+      </body>
+    </html>
+  </body>
+</html>
