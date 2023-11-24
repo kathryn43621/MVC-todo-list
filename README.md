@@ -1,2 +1,3 @@
 # MVC-todo-list
-A To Do List using MVC framework
+
+A Simple To Do List App that is built using the MVC Architecture. It is also implemented with "authorization" for customisation.
